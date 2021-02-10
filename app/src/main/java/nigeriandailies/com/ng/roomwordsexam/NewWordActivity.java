@@ -10,10 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class NewWordActivity extends AppCompatActivity {
-    public static final String EXTRA_REPLY =
-            "com.example.android.roomwordssample.REPLY";
-
-    private EditText mEditWordView;
+    public static final String EXTRA_REPLY = "com.example.android.roomwordssample.REPLY";
+    private  EditText mEditWordView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

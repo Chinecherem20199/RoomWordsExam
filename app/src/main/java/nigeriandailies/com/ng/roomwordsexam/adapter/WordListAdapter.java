@@ -15,6 +15,15 @@ import nigeriandailies.com.ng.roomwordsexam.entity.Word;
 
 public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
 
+    class WordViewHolder extends RecyclerView.ViewHolder {
+        private final TextView wordItemView;
+
+        private WordViewHolder(View itemView) {
+            super(itemView);
+            wordItemView = itemView.findViewById(R.id.textView);
+        }
+    }
+
     private final LayoutInflater mInflater;
     private List<Word> mWords; // Cached copy of words
 
@@ -28,13 +37,8 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
     @Override
     public void onBindViewHolder(WordViewHolder holder, int position) {
-        if (mWords != null) {
-            Word current = mWords.get(position);
-            holder.wordItemView.setText(current.getWord());
-        } else {
-            // Covers the case of data not being ready yet.
-            holder.wordItemView.setText("No Word");
-        }
+        Word current = mWords.get(position);
+        holder.wordItemView.setText(current.getWord());
     }
 
     public void setWords(List<Word> words){
@@ -50,13 +54,5 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
             return mWords.size();
         else return 0;
     }
-
-    class WordViewHolder extends RecyclerView.ViewHolder {
-        private final TextView wordItemView;
-
-        private WordViewHolder(View itemView) {
-            super(itemView);
-            wordItemView = itemView.findViewById(R.id.textView);
-        }
-    }
 }
+
